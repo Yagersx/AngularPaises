@@ -1,0 +1,23 @@
+<div class="table-responsive">
+  <table class="table table-stripped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Bandera</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Poblacion</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="" *ngFor="let pais of paises; let i = index">
+
+        <td scope="row"> {{ i + 1 }} </td>
+        <td>  <img src="{{ pais.flags.png }}" alt="" style="width: 50px;"> </td>
+        <td> {{ pais.capital}}, {{ pais.name }}</td>
+        <td> {{ pais.population | number}}</td>
+        <td><a [routerLink]="['/pais/', pais.alpha2Code]" routerLinkActive="router-link-active">Ver mas...</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
