@@ -21,7 +21,7 @@ const routes: Routes = [
     component: PorCapitalComponent,
   },
   {
-    path: 'pais/:codigoPais',
+    path: 'verpais/:id',
     component: VerPaisComponent,
   },
   {

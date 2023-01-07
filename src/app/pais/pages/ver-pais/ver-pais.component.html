@@ -1,1 +1,54 @@
-<p>ver-pais works!</p>
+.
+<div class="alert alert-info" role="alert" *ngIf="!pais; else divPais">
+  <strong>Cargando...</strong> Espere por favor...
+</div>
+
+<ng-template #divPais>
+  <!-- Hasta que tenga la informacion del observable o del pais, se mostrara este div. caso contrario, se mostrara el mensaje de cargando -->
+  <div class="row">
+    <div class="col-lg-2">
+      <h1>
+        Pais: <small>{{ pais.name }}</small>
+      </h1>
+      <img src="{{ pais.flag }}" class="img-thumbnail" alt="" />
+    </div>
+
+    <div class="col-lg-10">
+      <h3>Informacion</h3>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <strong>Población</strong> {{ pais.population | number }}
+        </li>
+        <li class="list-group-item">
+          <strong>Codigo numerico</strong> {{ pais.numericCode | number }}
+        </li>
+        <li class="list-group-item">
+          <strong>Codigo Alpha</strong> {{ pais.alpha3Code }}
+        </li>
+        <li class="list-group-item">
+          <strong>Capital</strong> {{ pais.capital | titlecase }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-lg-12">
+      <h3>Traducciones</h3>
+      <span class="badge bg-primary m-1">Br: {{ pais.translations.br }} </span>
+      <span class="badge bg-primary m-1">De: {{ pais.translations.de }} </span>
+      <span class="badge bg-primary m-1">Es: {{ pais.translations.es }} </span>
+      <span class="badge bg-primary m-1">It: {{ pais.translations.it }} </span>
+      <span class="badge bg-primary m-1">Ja: {{ pais.translations.ja }} </span>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-lg-12">
+      <h3>JSON</h3>
+      <pre>
+        {{ pais | json }}
+      </pre>
+    </div>
+  </div>
+</ng-template>
