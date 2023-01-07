@@ -64,3 +64,5 @@ export interface Translations {
   it: string;
   hu: string;
 }
+
+
